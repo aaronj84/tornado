@@ -8,12 +8,36 @@ services:
     networks:
       - elt_network  
     enviroment:  
-      - POSTGRES_PASSWORD: secret
-      - POSTGRES_USER: postgres
-      - POSTGRES_DB: postgres
+        - POSTGRES_DB: source_db
+        - POSTGRES_USER: postgres
+        - POSTGRES_PASSWORD: secret
+       
     volumes:
-      -./postgres_data:/var/lib/postgresql/data
-    
+      -./source_db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    destination_postgres:
+      image: postgres:latest
+      ports:
+      - "5434:5432"
+      networks:
+      - elt_network  
+      enviroment:  
+        - POSTGRES_DB: destination_db
+        - POSTGRES_USER: postgres
+        - POSTGRES_PASSWORD: secret
+
+  elt_script:
+    build:
+      context : ./elt_script
+      dockerfile: Dockerfile
+    command : ['python','elt_script.py']
+    networks:
+      - elt_network
+    depends_on configs:
+      - source_postgres
+      - destination_postgres      
+
+
 
 networks:
   elt_network:
