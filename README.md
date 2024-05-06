@@ -34,9 +34,12 @@ Welcome to the ELT project repository! This project showcases a custom Extract, 
 - It runs SQL queries against the destination PostgreSQL database to transform the data as per defined models and configurations.
 
 #### CRON Job Implementation
-- A CRON job has been implemented to automate the ELT process.
-- The CRON job is scheduled to run the ELT script at specified intervals, ensuring that the data in the destination PostgreSQL database is regularly updated with the latest data from the source database.
-- To configure the CRON job, adjust the time as needed within the Dockerfile found in the `elt_script` folder.
+In this branch, a CRON job has been implemented to automate the ELT process. The CRON job is scheduled to run the ELT script at specified intervals, ensuring that the data in the destination PostgreSQL database is regularly updated with the latest data from the source database.
+
+To configure the CRON job:
+
+Currently, the CRON job is setup to run every day at 3am.
+You can adjust the time as needed within the Dockerfile found in the elt_script folder.
 
 ### Getting Started
 
