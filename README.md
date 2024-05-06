@@ -1,4 +1,4 @@
-**ELT Project with Docker and PostgreSQL**
+## ELT Project with Docker and PostgreSQL ##
 
 Welcome to the ELT (Extract, Load, Transform) project repository, where we explore a streamlined approach to data processing using Docker and PostgreSQL. This comprehensive guide will walk you through the project structure, deployment steps, and customization options to help you harness the power of ELT for your data engineering needs.
 
