@@ -71,4 +71,4 @@ After connecting to the database, you can use the following commands:
 
 ### Conclusion
 
-You've successfully set up the ELT project using Docker, PostgreSQL, and dbt.
+You've successfully set up the ELT project using Docker, PostgreSQL, and dbt and CRON.
