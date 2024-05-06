@@ -54,6 +54,11 @@ To get started with the ELT project, follow these steps:
    ```bash
    docker exec -it elt-project-destination_postgres-1 psql -U postgres
    ```
+6. View the databse and tables within
+   ```bash 
+   \c destination_db   -- Connects to the destination database named destination_db
+   \dt                 -- Lists all tables in the current database
+   ```
 
 ### Conclusion
 
