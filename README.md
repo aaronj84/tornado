@@ -1,3 +1,4 @@
+
 <div align="center"> <br /> 
   <a href="https://github.com/TheODDYSEY/Elt-Project" target="_blank">
     <img src="./public/assets/images/elt-project.png" alt="Project Banner" /> 
@@ -18,8 +19,9 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [How It Works](#how-it-works)
 4. 🤸 [Getting Started](#getting-started)
-5. 🔗 [Links](#links)
-6. 🚀 [Conclusion](#conclusion)
+5. 🌲 [Branches](#branches)
+6. 🔗 [Links](#links)
+7. 🚀 [Conclusion](#conclusion)
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -90,6 +92,24 @@ docker exec -it elt-project-destination_postgres-1 psql -U postgres
 \dt                 -- Lists all tables in the current database
 ```
 
+## <a name="branches">🌲 Branches</a>
+
+This project has multiple branches to explore different ELT workflows. Switch to the appropriate branch to try out other implementations:
+
+| Branch    | Description                                                                                     | Switch Command                                                                 |
+|-----------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `main`    | ELT Project with Docker and PostgreSQL (current branch).                                        | `git checkout main`                                                           |
+| `airbyte` | A Dockerized ELT Workflow Using PostgreSQL, dbt, and Airflow.                                   | `git checkout airbyte`                                                        |
+| `airflow` | ELT Project with Docker, PostgreSQL, dbt, and Airflow.                                          | `git checkout airflow`                                                        |
+| `cron`    | ELT Project with Docker, PostgreSQL, dbt, and CRON.                                             | `git checkout cron`                                                           |
+| `dbt`     | ELT Project with Docker, PostgreSQL, and dbt.                                                   | `git checkout dbt`                                                            |
+
+To switch branches, run the appropriate `git checkout` command listed above.
+
+## <a name="links">🔗 Links</a>
+
+- [GitHub Repository](https://github.com/TheODDYSEY/Elt-Project)
+
 ## <a name="conclusion">🚀 Conclusion</a>
 
-Congratulations! You’ve successfully set up and run the ELT project using Docker and PostgreSQL. This project demonstrates the power of containerization and automation in handling data transfer tasks efficiently.
+Congratulations! You’ve successfully set up and run the ELT project using Docker and PostgreSQL. Explore the other branches to experience more advanced ELT workflows and expand your understanding of modern data processing pipelines.
