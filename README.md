@@ -1,8 +1,7 @@
 
 <div align="center"> 
  
-   ![ai-byte-dbt-postgre](https://github.com/user-attachments/assets/58d3fd88-d15f-4732-8643-5c8983c8cfb1)
- 
+
   </a> 
   <br />
   <div>
