@@ -3,6 +3,7 @@
   
 ![airflow-postresql-docker](https://github.com/user-attachments/assets/a10113ed-9d2d-4c36-90c2-84798657aa58)
 
+
   </a> <br /> 
   <div>
     <img src="https://img.shields.io/badge/-Docker-black?style=for-the-badge&logo=docker&logoColor=white&color=0db7ed" alt="Docker" />
@@ -17,10 +18,10 @@
 ## 📋 <a name="table">Table of Contents</a>
 
 1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [How It Works](#how-it-works)
-4. 🤸 [Getting Started](#getting-started)
-5. 🌲 [Branches](#branches)
+2. 🌲 [Branches](#branches)
+3. ⚙️ [Tech Stack](#tech-stack)
+4. 🔋 [How It Works](#how-it-works)
+5. 🤸 [Getting Started](#getting-started)
 6. 🔗 [Links](#links)
 7. 🚀 [Conclusion](#conclusion)
 
@@ -32,6 +33,20 @@ This ELT project demonstrates a custom Extract, Load, Transform (ELT) process th
 - Transforms data as necessary using a Python script.
 - Loads the transformed data into a destination PostgreSQL database.
 - All processes are orchestrated using Docker.
+
+## <a name="branches">🌲 Branches</a>
+
+This project has multiple branches to explore different ELT workflows. Switch to the appropriate branch to try out other implementations:
+
+| Branch    | Description                                                                                     | Switch Command                                                                 |
+|-----------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `main`    | ELT Project with Docker and PostgreSQL (current branch).                                        | `git checkout main`                                                           |
+| `airbyte` | A Dockerized ELT Workflow Using PostgreSQL, dbt, and Airflow.                                   | `git checkout airbyte`                                                        |
+| `airflow` | ELT Project with Docker, PostgreSQL, dbt, and Airflow.                                          | `git checkout airflow`                                                        |
+| `cron`    | ELT Project with Docker, PostgreSQL, dbt, and CRON.                                             | `git checkout cron`                                                           |
+| `dbt`     | ELT Project with Docker, PostgreSQL, and dbt.                                                   | `git checkout dbt`                                                            |
+
+To switch branches, run the appropriate `git checkout` command listed above.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
