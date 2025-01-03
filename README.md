@@ -1,84 +1,141 @@
-## ELT Project with Docker, PostgreSQL, dbt, and Airflow
 
-Welcome to the ELT project repository! This project demonstrates a comprehensive Extract, Load, Transform (ELT) process using Docker, PostgreSQL, dbt, and Airflow. Below, you'll find details on the repository structure, how it works, and instructions to get started.
+<div align="center"> 
+  <a href="https://github.com/your-username/elt-project" target="_blank">
+    <img src="./assets/images/elt-project-banner.png" alt="Project Banner" /> 
+  </a> 
+  <br />
+  <div>
+    <img src="https://img.shields.io/badge/-Docker-blue?style=for-the-badge&logo=docker&logoColor=white&color=2496ED" alt="Docker" />
+    <img src="https://img.shields.io/badge/-PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white&color=316192" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/-dbt-orange?style=for-the-badge&logo=dbt&logoColor=white&color=FF694B" alt="dbt" />
+    <img src="https://img.shields.io/badge/-Airflow-blue?style=for-the-badge&logo=apache-airflow&logoColor=white&color=017CEE" alt="Airflow" />
+  </div>
+  <h1 align="center">⚙️ ELT Project</h1>
+  <h3 align="center">A Dockerized ELT Workflow Using PostgreSQL, dbt, and Airflow</h3>
+  <p align="center">Automate your data extraction, loading, and transformation processes with this scalable and modular setup.</p>
+</div>
 
-### Repository Structure
+---
 
-- **docker-compose.yaml**: This file orchestrates Docker containers for the project. It defines services for the source PostgreSQL database, destination PostgreSQL database, ELT script, dbt, and Airflow.
-  
-- **elt_script**: Contains the ELT script and Dockerfile for the ELT service.
-  - **Dockerfile**: Sets up a Python environment and installs the PostgreSQL client. It also copies the ELT script into the container.
-  - **elt_script.py**: Performs the ELT process, waiting for the source PostgreSQL database to become available, dumping its data to a SQL file, and loading it into the destination PostgreSQL database.
-  
-- **source_db_init**: Includes the SQL script for initializing the source database with sample data.
-  - **init.sql**: Initializes tables for users, films, film categories, actors, and film actors, and inserts sample data.
-  
-- **custom_postgres**: Contains configurations for the custom PostgreSQL database.
+## 📋 <a name="table">Table of Contents</a>
 
-- **airflow**: Contains Airflow DAG definition and Dockerfile.
-  - **dags**: Directory containing Airflow DAG definition.
-    - **elt_and_dbt.py**: Airflow DAG definition file.
-  - **Dockerfile**: Dockerfile to set up Airflow environment and install required dependencies.
+1. 🤖 [Introduction](#introduction)  
+2. ⚙️ [Tech Stack](#tech-stack)  
+3. 🔋 [Features](#features)  
+4. 🤸 [Quick Start](#quick-start)  
+5. 🛠️ [Repository Structure](#repository-structure)  
+6. 🕸️ [How It Works](#how-it-works)  
+7. 🔗 [Connecting and Accessing Services](#connecting-and-accessing-services)  
+8. 🚀 [Conclusion](#conclusion)
 
-### How It Works
+---
 
-#### Docker Compose
-- Using the `docker-compose.yaml` file, Docker containers are spun up for:
-  1. Source PostgreSQL database with sample data.
-  2. Destination PostgreSQL database.
-  3. Python environment to run the ELT script.
-  4. dbt for running data transformations.
-  5. Airflow for orchestrating the ELT and dbt workflows.
+## <a name="introduction">🤖 Introduction</a>
 
-#### ELT Process
-- The `elt_script.py` waits for the source PostgreSQL database to become available.
-- Once available, the script uses `pg_dump` to dump the source database to a SQL file.
-- It then uses `psql` to load this SQL file into the destination PostgreSQL database.
+The ELT Project demonstrates a comprehensive workflow for extracting, loading, and transforming data using modern tools like Docker, PostgreSQL, dbt, and Airflow. 
 
-#### Data Transformation with dbt
-- dbt (data build tool) is used for performing data transformations.
-- It runs SQL queries against the destination PostgreSQL database to transform the data as per defined models and configurations.
+This project includes:
 
-#### Airflow Integration
-- An Airflow DAG (`elt_and_dbt.py`) has been implemented to orchestrate the ELT and dbt workflows.
-- The DAG schedules tasks to run the ELT script and dbt commands at specified intervals.
-- Airflow provides a web-based UI for monitoring and managing workflows.
+- A source PostgreSQL database initialized with sample data.
+- An automated ELT process using a Python script to migrate data between databases.
+- dbt models for data transformation and analytics.
+- Airflow orchestration for seamless workflow automation and monitoring.
 
+---
 
-### Getting Started
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-1. Ensure you have Docker and Docker Compose installed on your machine.
-2. Clone this repository to your local machine.
-3. Navigate to the project directory.
-4. Run the following command to start the Docker containers:
+- **Docker**: For containerizing and orchestrating services.  
+- **PostgreSQL**: Relational database for source and destination data storage.  
+- **dbt**: Data transformation and analytics.  
+- **Apache Airflow**: Workflow orchestration and scheduling.  
+- **Python**: ELT script implementation.  
+
+---
+
+## <a name="features">🔋 Features</a>
+
+👉 **Fully Dockerized Environment:** Easily spin up isolated services using Docker Compose.  
+👉 **Automated ELT Process:** A Python script automates data extraction, loading, and transformation between databases.  
+👉 **Data Transformation with dbt:** Use dbt models for efficient SQL-based data transformations.  
+👉 **Workflow Orchestration with Airflow:** Schedule and monitor ELT tasks using Airflow's web-based UI.  
+👉 **Sample Data Initialization:** Source PostgreSQL database is preloaded with user-friendly sample data.  
+👉 **Dynamic Data Migration:** Transfer data seamlessly between source and destination databases.  
+
+---
+
+## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up and run the project locally:
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/your-username/elt-project.git
+   cd elt-project
+   ```
+
+2. Start the services using Docker Compose:  
    ```bash
    docker-compose up
    ```
-5. To stop the containers and remove volumes, run:
+
+3. To stop services and clean up resources:  
    ```bash
    docker-compose down -v
    ```
 
-### Connecting to PostgreSQL Database
+---
 
-To connect to the destination PostgreSQL database:
+## <a name="repository-structure">🛠️ Repository Structure</a>
 
+- **`docker-compose.yaml`**: Configures services for the project.  
+- **`elt_script`**: Contains the Python ELT script and Dockerfile.  
+  - **`elt_script.py`**: Automates the ELT process between databases.  
+  - **`Dockerfile`**: Builds the Python environment.  
+- **`source_db_init`**: SQL script to initialize the source database with sample data.  
+- **`airflow`**: DAGs and dependencies for workflow orchestration.  
+  - **`dags`**: Contains the Airflow DAG definition file.  
+
+---
+
+## <a name="how-it-works">🕸️ How It Works</a>
+
+1. **Dockerized Services**  
+   - Containers include the source and destination PostgreSQL databases, Python ELT service, dbt, and Airflow.
+
+2. **ELT Process**  
+   - The ELT script extracts data from the source database, loads it into the destination database, and ensures smooth data transfer.
+
+3. **Data Transformation**  
+   - dbt applies SQL models to transform and analyze the loaded data.
+
+4. **Orchestration**  
+   - Airflow schedules and monitors the entire process via a web-based UI.
+
+---
+
+## <a name="connecting-and-accessing-services">🔗 Connecting and Accessing Services</a>
+
+### PostgreSQL
+To connect to the destination database:  
 ```bash
 docker exec -it elt-project-destination_postgres-1 psql -U postgres
 ```
 
-After connecting to the database, you can use the following commands:
+Once connected:  
 ```sql
-\c destination_db   -- Connects to the destination database named destination_db
-\dt                 -- Lists all tables in the current database
+\c destination_db   -- Switch to the destination database  
+\dt                 -- List tables  
 ```
 
-### Airflow Access
+### Airflow  
+Access the Airflow web UI at: [http://localhost:8080](http://localhost:8080)  
+- **Username:** airflow  
+- **Password:** password  
 
-Once the Docker containers are up and running, you can access the Airflow web UI at `http://localhost:8080`. Use the following credentials:
-- Username: airflow
-- Password: password
+---
 
-### Conclusion
+## <a name="conclusion">🚀 Conclusion</a>
 
-You've successfully set up the ELT project using Docker, PostgreSQL, dbt, and Airflow.
+This project equips you with the tools to manage ELT workflows effectively. Whether you’re migrating data, transforming it for analytics, or scheduling workflows, this modular setup has you covered. Happy coding! 🚀
+
