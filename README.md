@@ -109,19 +109,6 @@ docker exec -it elt-project-destination_postgres-1 psql -U postgres
 \dt                 -- Lists all tables in the current database
 ```
 
-## <a name="branches">🌲 Branches</a>
-
-This project has multiple branches to explore different ELT workflows. Switch to the appropriate branch to try out other implementations:
-
-| Branch    | Description                                                                                     | Switch Command                                                                 |
-|-----------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| `main`    | ELT Project with Docker and PostgreSQL (current branch).                                        | `git checkout main`                                                           |
-| `airbyte` | A Dockerized ELT Workflow Using PostgreSQL, dbt, and Airflow.                                   | `git checkout airbyte`                                                        |
-| `airflow` | ELT Project with Docker, PostgreSQL, dbt, and Airflow.                                          | `git checkout airflow`                                                        |
-| `cron`    | ELT Project with Docker, PostgreSQL, dbt, and CRON.                                             | `git checkout cron`                                                           |
-| `dbt`     | ELT Project with Docker, PostgreSQL, and dbt.                                                   | `git checkout dbt`                                                            |
-
-To switch branches, run the appropriate `git checkout` command listed above.
 
 ## <a name="links">🔗 Links</a>
 
