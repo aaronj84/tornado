@@ -1,74 +1,165 @@
-## ELT Project with Docker, PostgreSQL, and dbt and CRON 
+Here's the updated version of your README that includes CRON job automation along with Docker, PostgreSQL, and dbt integration:
 
-Welcome to the ELT project repository! This project showcases a custom Extract, Load, Transform (ELT) process using Docker, PostgreSQL, and dbt. Below, you'll find details on the repository structure, how it works, and instructions to get started.
+---
 
-### Repository Structure
+<div align="center"> <br /> 
+  <a href="https://youtu.be/zgGhzuBZOQg" target="_blank">
+    <img src="./public/assets/images/tickethub.png" alt="Project Banner" /> 
+  </a> <br /> 
+  <div>
+    <img src="https://img.shields.io/badge/-Docker-blue?style=for-the-badge&logo=docker&logoColor=white&color=2496ED" alt="Docker" /> 
+    <img src="https://img.shields.io/badge/-PostgreSQL-blue?style=for-the-badge&logo=postgresql&logoColor=white&color=336791" alt="PostgreSQL" /> 
+    <img src="https://img.shields.io/badge/-dbt-black?style=for-the-badge&logo=dbt&logoColor=white&color=2D3748" alt="dbt" />
+    <img src="https://img.shields.io/badge/-CRON-green?style=for-the-badge&logo=linux&logoColor=white&color=2E8B57" alt="CRON" />
+  </div>
+  <h1 align="center">🔄 ELT Project with Docker, PostgreSQL, dbt, and CRON</h1>
+  <h3 align="center">A Custom Extract, Load, Transform (ELT) Process with Docker, PostgreSQL, dbt, and CRON Automation</h3>
+  <p align="center">A seamless solution for automating data extraction, loading, and transformation with regular updates via CRON jobs.</p> 
+</div>
 
-- **docker-compose.yaml**: This file orchestrates Docker containers for the project. It defines services for the source PostgreSQL database, destination PostgreSQL database, ELT script, and dbt.
-  
-- **elt_script**: Contains the ELT script and Dockerfile for the ELT service.
-  - **Dockerfile**: Sets up a Python environment and installs the PostgreSQL client. It also copies the ELT script into the container.
-  - **elt_script.py**: Performs the ELT process, waiting for the source PostgreSQL database to become available, dumping its data to a SQL file, and loading it into the destination PostgreSQL database.
-  
-- **source_db_init**: Includes the SQL script for initializing the source database with sample data.
-  - **init.sql**: Initializes tables for users, films, film categories, actors, and film actors, and inserts sample data.
-  
-- **custom_postgres**: Contains configurations for the custom PostgreSQL database.
+## 📋 <a name="table">Table of Contents</a>
 
-### How It Works
+1. 🤖 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+5. 📝 [Code Snippets](#snippets)
+6. 🔗 [Links](#links)
+7. 🚀 [Conclusion](#more)
 
-#### Docker Compose
-- Using the `docker-compose.yaml` file, Docker containers are spun up for:
-  1. Source PostgreSQL database with sample data.
-  2. Destination PostgreSQL database.
-  3. Python environment to run the ELT script.
-  4. dbt for running data transformations.
+## <a name="introduction">🤖 Introduction</a>
 
-#### ELT Process
-- The `elt_script.py` waits for the source PostgreSQL database to become available.
-- Once available, the script uses `pg_dump` to dump the source database to a SQL file.
-- It then uses `psql` to load this SQL file into the destination PostgreSQL database.
+This project demonstrates a custom Extract, Load, Transform (ELT) process using Docker, PostgreSQL, dbt (data build tool), and CRON for automation. The project facilitates data migration, transformation, and regular updates to ensure the destination database reflects the most current data from the source.
 
-#### Data Transformation with dbt
-- dbt (data build tool) is used for performing data transformations.
-- It runs SQL queries against the destination PostgreSQL database to transform the data as per defined models and configurations.
+- **Docker** orchestrates the containerized services for easy deployment.
+- **PostgreSQL** is used as the source and destination database.
+- **dbt** handles data transformations and analysis.
+- **CRON** automates the ELT process by scheduling regular updates.
 
-#### CRON Job Implementation
-In this branch, a CRON job has been implemented to automate the ELT process. The CRON job is scheduled to run the ELT script at specified intervals, ensuring that the data in the destination PostgreSQL database is regularly updated with the latest data from the source database.
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-To configure the CRON job:
+- Docker
+- PostgreSQL
+- dbt (Data Build Tool)
+- Python (for the ELT script)
+- Docker Compose (for container orchestration)
+- CRON (for task scheduling and automation)
 
-Currently, the CRON job is setup to run every day at 3am.
-You can adjust the time as needed within the Dockerfile found in the elt_script folder.
+## <a name="features">🔋 Features</a>
 
-### Getting Started
+👉 **Docker Orchestration:** All components, including PostgreSQL and dbt, are managed via Docker Compose, allowing for easy replication and environment setup.
 
-1. Ensure you have Docker and Docker Compose installed on your machine.
-2. Clone this repository to your local machine.
-3. Navigate to the project directory.
-4. Run the following command to start the Docker containers:
-   ```bash
-   docker-compose up
-   ```
-5. To stop the containers and remove volumes, run:
-   ```bash
-   docker-compose down -v
-   ```
+👉 **ELT Script:** A custom ELT process is implemented, extracting data from the source PostgreSQL database and loading it into the destination PostgreSQL database. The script uses `pg_dump` to dump the data and `psql` to load it.
 
-### Connecting to PostgreSQL Database
+👉 **Data Transformation with dbt:** Once data is loaded, dbt transforms it using predefined models and SQL queries.
 
-To connect to the destination PostgreSQL database:
+👉 **CRON Job Automation:** A CRON job automates the ELT process by running the ELT script at specified intervals (currently set for every day at 3 AM). The CRON job ensures that the data in the destination database is regularly updated with the latest data from the source database.
+
+## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+**Cloning the Repository**
 
 ```bash
-docker exec -it elt-project-destination_postgres-1 psql -U postgres
+git clone https://github.com/your-username/elt-project.git
+cd elt-project
 ```
 
-After connecting to the database, you can use the following commands:
+**Installation**
+
+Build and run the Docker containers using Docker Compose:
+
+```bash
+docker-compose up
+```
+
+This will start the source and destination PostgreSQL databases, along with a Python environment for the ELT script, and schedule the CRON job.
+
+**Running the ELT Process**
+
+The ELT process will start automatically once the containers are up and running. The CRON job ensures that the ELT script is executed every day at 3 AM, updating the destination database with the latest data from the source database.
+
+**Stopping and Removing Containers**
+
+To stop the containers and remove volumes, run:
+
+```bash
+docker-compose down -v
+```
+
+## <a name="snippets">📝 Code Snippets</a>
+
+### ELT Script: `elt_script.py`
+
+```python
+# ELT Script: elt_script.py
+
+def run_elt_script():
+    # Code to execute ELT process
+    ...
+
+run_elt_script()  # Execute ELT script
+```
+
+### CRON Job Setup: `Dockerfile` (in the `elt_script` folder)
+
+```Dockerfile
+# Dockerfile for ELT service with CRON job
+
+# Set up the Python environment and PostgreSQL client
+FROM python:3.9-slim
+
+# Install required packages
+RUN apt-get update && apt-get install -y cron postgresql-client
+
+# Copy ELT script into the container
+COPY elt_script.py /app/elt_script.py
+
+# Set up CRON job to run ELT script every day at 3 AM
+RUN echo "0 3 * * * python /app/elt_script.py" >> /etc/cron.d/elt-cron
+RUN chmod 0644 /etc/cron.d/elt-cron
+
+# Start the cron service
+CMD cron && tail -f /var/log/cron.log
+```
+
+### Database Initialization: `init.sql`
+
 ```sql
-\c destination_db   -- Connects to the destination database named destination_db
-\dt                 -- Lists all tables in the current database
+-- Initialize Source Database
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100)
+);
+
+INSERT INTO users (username, email) VALUES
+('john_doe', 'john@example.com'),
+('jane_doe', 'jane@example.com');
 ```
 
-### Conclusion
+## <a name="links">🔗 Links</a>
 
-You've successfully set up the ELT project using Docker, PostgreSQL, and dbt and CRON.
+- [Docker Documentation](https://docs.docker.com/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [dbt Documentation](https://docs.getdbt.com/)
+- [CRON Job Documentation](https://en.wikipedia.org/wiki/Cron)
+
+## <a name="more">🚀 Conclusion</a>
+
+Congratulations! You've successfully set up the ELT project using Docker, PostgreSQL, dbt, and CRON automation. The CRON job ensures that the data is regularly updated, making this a powerful tool for automating data workflows. Feel free to explore the code, make modifications, and experiment with the CRON job schedule.
+
+If you have any questions or encounter any issues, refer to the documentation or reach out for assistance. Happy coding!
+
+---
+
+This README incorporates the CRON job setup to automate the ELT process, and it’s structured for clarity and easy navigation. Let me know if you'd like to make any further adjustments!
