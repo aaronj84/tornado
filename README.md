@@ -1,17 +1,17 @@
 
 <div align="center"> <br /> 
-  <a href="https://youtu.be/zgGhzuBZOQg" target="_blank">
-    <img src="./public/assets/images/tickethub.png" alt="Project Banner" /> 
+
   </a> <br /> 
-  <div>
+
+  <h1 align="center">🔄 ELT Project with Docker, PostgreSQL, dbt, and Airflow</h1>
+  <h3 align="center">A Comprehensive Extract, Load, Transform (ELT) Process with Docker, PostgreSQL, dbt, and Airflow for Workflow Automation</h3>
+  <p align="center">A powerful solution for automating data extraction, transformation, and loading with streamlined orchestration using Airflow.</p> 
+    <div>
     <img src="https://img.shields.io/badge/-Docker-blue?style=for-the-badge&logo=docker&logoColor=white&color=2496ED" alt="Docker" /> 
     <img src="https://img.shields.io/badge/-PostgreSQL-blue?style=for-the-badge&logo=postgresql&logoColor=white&color=336791" alt="PostgreSQL" /> 
     <img src="https://img.shields.io/badge/-dbt-black?style=for-the-badge&logo=dbt&logoColor=white&color=2D3748" alt="dbt" />
     <img src="https://img.shields.io/badge/-Airflow-lightgrey?style=for-the-badge&logo=apache-airflow&logoColor=white&color=0179B5" alt="Airflow" />
   </div>
-  <h1 align="center">🔄 ELT Project with Docker, PostgreSQL, dbt, and Airflow</h1>
-  <h3 align="center">A Comprehensive Extract, Load, Transform (ELT) Process with Docker, PostgreSQL, dbt, and Airflow for Workflow Automation</h3>
-  <p align="center">A powerful solution for automating data extraction, transformation, and loading with streamlined orchestration using Airflow.</p> 
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
