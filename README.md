@@ -1,7 +1,8 @@
 
 <div align="center"> 
-  <a href="https://github.com/your-username/elt-project" target="_blank">
-    <img src="./assets/images/elt-project-banner.png" alt="Project Banner" /> 
+ 
+   ![ai-byte-dbt-postgre](https://github.com/user-attachments/assets/58d3fd88-d15f-4732-8643-5c8983c8cfb1)
+ 
   </a> 
   <br />
   <div>
