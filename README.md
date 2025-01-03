@@ -1,6 +1,3 @@
-Here's the updated version of your README that includes CRON job automation along with Docker, PostgreSQL, and dbt integration:
-
----
 
 <div align="center"> <br /> 
   <a href="https://youtu.be/zgGhzuBZOQg" target="_blank">
@@ -159,7 +156,3 @@ INSERT INTO users (username, email) VALUES
 Congratulations! You've successfully set up the ELT project using Docker, PostgreSQL, dbt, and CRON automation. The CRON job ensures that the data is regularly updated, making this a powerful tool for automating data workflows. Feel free to explore the code, make modifications, and experiment with the CRON job schedule.
 
 If you have any questions or encounter any issues, refer to the documentation or reach out for assistance. Happy coding!
-
----
-
-This README incorporates the CRON job setup to automate the ELT process, and it’s structured for clarity and easy navigation. Let me know if you'd like to make any further adjustments!
