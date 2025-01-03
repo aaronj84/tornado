@@ -1,16 +1,15 @@
 
 <div align="center"> <br /> 
-  <a href="https://youtu.be/zgGhzuBZOQg" target="_blank">
-    <img src="./public/assets/images/tickethub.png" alt="Project Banner" /> 
-  </a> <br /> 
+
+  <h1 align="center">🔄 ELT Project with Docker, PostgreSQL, and dbt</h1>
+  <h3 align="center">A Custom Extract, Load, Transform (ELT) Process with Docker and dbt Integration</h3>
+  <p align="center">A streamlined process to manage and transform data using Docker, PostgreSQL, and dbt for improved data analysis and management.</p> 
+  
   <div>
     <img src="https://img.shields.io/badge/-Docker-blue?style=for-the-badge&logo=docker&logoColor=white&color=2496ED" alt="Docker" /> 
     <img src="https://img.shields.io/badge/-PostgreSQL-blue?style=for-the-badge&logo=postgresql&logoColor=white&color=336791" alt="PostgreSQL" /> 
     <img src="https://img.shields.io/badge/-dbt-black?style=for-the-badge&logo=dbt&logoColor=white&color=2D3748" alt="dbt" />
   </div>
-  <h1 align="center">🔄 ELT Project with Docker, PostgreSQL, and dbt</h1>
-  <h3 align="center">A Custom Extract, Load, Transform (ELT) Process with Docker and dbt Integration</h3>
-  <p align="center">A streamlined process to manage and transform data using Docker, PostgreSQL, and dbt for improved data analysis and management.</p> 
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
