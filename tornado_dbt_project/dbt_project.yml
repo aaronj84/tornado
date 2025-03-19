@@ -1,0 +1,12 @@
+name: "tornado_dbt_project"
+version: "1.0"
+config-version: 2
+
+profile: "tornado_dbt_project"  # This must match profiles.yml
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
