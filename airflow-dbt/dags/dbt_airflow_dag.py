@@ -15,8 +15,15 @@ dag = DAG(
     catchup=False
 )
 
+# dbt_run = BashOperator(
+#     task_id='dbt_run',
+#     bash_command='/home/airflow/.local/bin/dbt run',
+#     dag=dag
+# )
+
 dbt_run = BashOperator(
     task_id='dbt_run',
     bash_command='/home/airflow/.local/bin/dbt run',
+    env={'PATH': '/home/airflow/.local/bin:$PATH'},
     dag=dag
 )
