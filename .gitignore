@@ -41,6 +41,7 @@ dbconfig.json
 dbt_modules/
 target/
 logs/
+airflow-dbt/logs
 dbt_packages/
 
 # === Secrets ===
