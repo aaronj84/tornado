@@ -11,14 +11,34 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+schemes = {'stg','app','config'}
+
+for schema in schemes:
+    cur.execute(f"CREATE SCHEMA IF NOT EXISTS {schema};")
+
+conn.commit()
+
 # DROP TABLES first if re-running
 cur.execute("""
-DROP TABLE IF EXISTS fact_event_participation, dim_event, dim_roles, dim_person, config_calendar CASCADE;
+DROP TABLE IF EXISTS stg.events, app.fact_event_participation, app.dim_event, app.dim_roles, app.dim_person, config.calendar CASCADE;
 """)
 
 # Create tables
 cur.execute("""
-CREATE TABLE dim_event (
+CREATE TABLE stg.dim_event (
+    event_title VARCHAR(255),
+    team_name VARCHAR(255),
+    location_name VARCHAR(255),
+    location_address VARCHAR(255),
+    event_start_dts TIMESTAMP,
+    event_end_dts TIMESTAMP,
+    uniform VARCHAR(255)
+);
+""")
+
+# Create tables
+cur.execute("""
+CREATE TABLE app.dim_event (
     event_id SERIAL PRIMARY KEY,
     event_title VARCHAR(255),
     team_name VARCHAR(255),
@@ -31,14 +51,14 @@ CREATE TABLE dim_event (
 """)
 
 cur.execute("""
-CREATE TABLE dim_roles (
+CREATE TABLE app.dim_roles (
     role_id SERIAL PRIMARY KEY,
     role_name VARCHAR(100) -- Examples: Player, Driver, Spectator, Home Babysitter, Stay Home
 );
 """)
 
 cur.execute("""
-CREATE TABLE dim_person (
+CREATE TABLE app.dim_person (
     person_id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     can_drive BOOLEAN,
@@ -48,17 +68,17 @@ CREATE TABLE dim_person (
 """)
 
 cur.execute("""
-CREATE TABLE config_calendar (
+CREATE TABLE config.calendar (
     calendar_id SERIAL PRIMARY KEY,
     calendar_name VARCHAR(255),
     url TEXT,
-    type VARCHAR(50),
+    calendar_type VARCHAR(50),
     auth TEXT
 );
 """)
 
 cur.execute("""
-CREATE TABLE fact_event_participation (
+CREATE TABLE app.fact_event_participation (
     id SERIAL PRIMARY KEY,
     event_id INT REFERENCES dim_event(event_id),
     role_id INT REFERENCES dim_roles(role_id),
@@ -78,13 +98,13 @@ print("Tables created successfully!")
 
 # Optional: Insert dummy data if you want
 cur.execute("""
-INSERT INTO dim_roles (role_name)
+INSERT INTO app.dim_roles (role_name)
 VALUES
 ('Player'), ('Driver'), ('Spectator'), ('Home Babysitter'), ('Stay Home');
 """)
 
 cur.execute("""
-INSERT INTO dim_person (name, can_drive, can_supervise)
+INSERT INTO app.dim_person (name, can_drive, can_supervise)
 VALUES
 ('Aaron', TRUE, TRUE),
 ('Jenn', TRUE, TRUE),
@@ -98,11 +118,11 @@ VALUES
 """)
 
 cur.execute("""
-INSERT INTO config_calendar (calendar_name, url, calendar_type, auth)
+INSERT INTO config.calendar (calendar_name, url, calendar_type, auth)
 VALUES
 ('CFC Academy','http://ical-cdn.teamsnap.com/team_schedule/d2bcf3f4-8973-43e0-9f9f-a3425adc97e3.ics','ics','none'),
 ('Rudi B15 United','http://ical-cdn.teamsnap.com/team_schedule/filter/games/68e18647-9f03-43f2-ac56-342f1c60568b.ics','ics','none'),
-('Danr Yankees','http://ical-cdn.teamsnap.com/team_schedule/d2bcf3f4-8973-43e0-9f9f-a3425adc97e3.ics','ics','none');
+('Danr Yankees','https://api.team-manager.gc.com/ics-calendar-documents/user/416c3290-6f46-485a-9be7-29f68e8cfbf3.ics?teamId=36583f79-f818-4965-a6c6-0f333404bfd5&token=e00cf042f29d76eaf1cb154e510f5a3c02439945d9de4d75f4c5c4e7616dea14','ics','none');
 """)
 
 conn.commit()
