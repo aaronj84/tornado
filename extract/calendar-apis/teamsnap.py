@@ -15,6 +15,7 @@ calendar = Calendar(response.text)
 
 # 4. Explore the events
 for event in calendar.events:
+    print(event.uid)
     print(f"Event: {event.name}")
     print(f"Starts: {event.begin}")
     print(f"Ends: {event.end}")

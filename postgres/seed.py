@@ -117,7 +117,7 @@ INSERT INTO config.calendar (calendar_name, url, calendar_type, auth)
 VALUES
  ('CFC Academy','http://ical-cdn.teamsnap.com/team_schedule/d2bcf3f4-8973-43e0-9f9f-a3425adc97e3.ics','ics','none')
 ,('Rudi B15 United','http://ical-cdn.teamsnap.com/team_schedule/filter/games/68e18647-9f03-43f2-ac56-342f1c60568b.ics','ics','none')
-,('Danr Yankees','https://api.team-manager.gc.com/ics-calendar-documents/user/416c3290-6f46-485a-9be7-29f68e8cfbf3.ics?teamId=36583f79-f818-4965-a6c6-0f333404bfd5&token=e00cf042f29d76eaf1cb154e510f5a3c02439945d9de4d75f4c5c4e7616dea14','ics','none')
+--,('Danr Yankees','https://api.team-manager.gc.com/ics-calendar-documents/user/416c3290-6f46-485a-9be7-29f68e8cfbf3.ics?teamId=36583f79-f818-4965-a6c6-0f333404bfd5&token=e00cf042f29d76eaf1cb154e510f5a3c02439945d9de4d75f4c5c4e7616dea14','ics','none')
 ,('Svea BHS Golf','http://ical-cdn.teamsnap.com/team_schedule/d2bcf3f4-8973-43e0-9f9f-a3425adc97e3.ics','google','none')
 ;""")
 
