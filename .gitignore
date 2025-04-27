@@ -66,3 +66,4 @@ docker-compose.override.yml
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+airflow-dbt/logs/dag_processor_manager/dag_processor_manager.log
