@@ -1,10 +1,9 @@
 import requests
 from ics import Calendar
 
-# 1. Your TeamSnap calendar link
-##"CFC" Mari Bryn Cal##url = 'http://ical-cdn.teamsnap.com/team_schedule/d2bcf3f4-8973-43e0-9f9f-a3425adc97e3.ics'
-url = 'http://ical-cdn.teamsnap.com/team_schedule/filter/games/68e18647-9f03-43f2-ac56-342f1c60568b.ics'##Rudi B15 AJ
-
+# 1. Your Gamechanger calendar link
+##danr yankees
+url = 'https://api.team-manager.gc.com/ics-calendar-documents/user/416c3290-6f46-485a-9be7-29f68e8cfbf3.ics?teamId=36583f79-f818-4965-a6c6-0f333404bfd5&token=e00cf042f29d76eaf1cb154e510f5a3c02439945d9de4d75f4c5c4e7616dea14'
 
 # 2. Fetch the calendar file
 response = requests.get(url)
@@ -21,4 +20,5 @@ for event in calendar.events:
     print(f"Description: {event.description}")
     print(f"Location: {event.location}")
     print("---")
+    # print(f"Extra : {event.extra or 'N/A'}")
 
