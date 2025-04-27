@@ -1,0 +1,9 @@
+# config.py
+
+DB_CONFIG = {
+    "host": "localhost",
+    "port": 5432,
+    "database": "mydb",
+    "user": "myuser",
+    "password": "mypassword"
+}
