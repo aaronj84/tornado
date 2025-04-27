@@ -1,1 +1,67 @@
-*.log
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+.venv/
+*.env
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# === Jupyter notebooks (if you use them) ===
+.ipynb_checkpoints/
+
+# === Airflow ===
+# Airflow creates a lot of local working files
+airflow.cfg
+unittests.cfg
+logs/
+airflow.db
+airflow-webserver.pid
+# Airflow home folder (optional, if you redirect it somewhere)
+# airflow_home/
+
+# === Postgres (general database artifacts) ===
+*.sql
+*.dump
+*.backup
+# Optional: if you generate connection config files
+dbconfig.json
+
+# === DBT ===
+dbt_modules/
+target/
+logs/
+dbt_packages/
+
+# === Secrets ===
+*.env
+.env.*
+secrets.*
+*.key
+*.pem
+
+# === IDE/editor junk ===
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# === Docker artifacts ===
+*.pid
+docker-compose.override.yml
+
+# === OS Files ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
