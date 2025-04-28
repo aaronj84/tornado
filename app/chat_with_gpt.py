@@ -30,6 +30,6 @@ def chat_with_gpt(prompt):
         return f"An error occurred: {e}"
 
 if __name__ == "__main__":
-    user_prompt = "Testing the API: Write a dark-humor haiku about chatgpt api interactions"
+    user_prompt = "Testing the API: Write a dark-humor haiku in German about golfing as a dad"
     response = chat_with_gpt(user_prompt)
     print("ChatGPT Response:", response)
